@@ -1,7 +1,6 @@
 Manifest-Version: 1.0
-OpenIDE-Module: gitclient
-OpenIDE-Module-Install: gitclient/Installer.class
-OpenIDE-Module-Layer: gitclient/layer.xml
-OpenIDE-Module-Localizing-Bundle: gitclient/Bundle.properties
+OpenIDE-Module: show.branch.in.statusbar
+OpenIDE-Module-Install: de/markiewb/netbeans/plugin/git/showbranch/Installer.class
+OpenIDE-Module-Localizing-Bundle: de/markiewb/netbeans/plugin/git/showbranch/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
 
