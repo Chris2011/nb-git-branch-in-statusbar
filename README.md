@@ -8,5 +8,7 @@ Features:
 * Show current GIT branch in statusbar. 
 * A click on the label will open "Switch to branch..." dialog.
 
-State: only a proof of concept
+Experimental state.
+
+Available at http://plugins.netbeans.org/plugin/51266/?show=true
 
