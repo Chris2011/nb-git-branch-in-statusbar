@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 OpenIDE-Module: show.branch.in.statusbar
 OpenIDE-Module-Install: de/markiewb/netbeans/plugin/git/showbranch/Installer.class
 OpenIDE-Module-Localizing-Bundle: de/markiewb/netbeans/plugin/git/showbranch/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
+OpenIDE-Module-Specification-Version: 1.0.1
 
