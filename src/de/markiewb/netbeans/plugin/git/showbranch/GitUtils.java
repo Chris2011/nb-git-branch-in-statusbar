@@ -15,6 +15,7 @@
  */
 package de.markiewb.netbeans.plugin.git.showbranch;
 
+import java.io.File;
 import java.util.Collection;
 import org.netbeans.libs.git.GitBranch;
 import org.netbeans.libs.git.GitClient;
@@ -32,11 +33,10 @@ import org.openide.util.Exceptions;
 public class GitUtils {
 
     public static GitBranch getActiveBranch(final FileObject f) {
-        final FileObject gitRepoDirectory = getGitRepoDirectory(f);
-        if (null == gitRepoDirectory) {
+        final GitRepository repo = getGitRepo(f);
+        if (null == repo) {
             return null;
         }
-        GitRepository repo = GitRepository.getInstance(FileUtil.toFile(gitRepoDirectory));
         GitClient client = null;
         try {
             client = repo.createClient();
@@ -57,6 +57,18 @@ public class GitUtils {
         return null;
     }
 
+    static GitRepository getGitRepo(final FileObject f) {
+        final FileObject gitRepoDirectory = getGitRepoDirectory(f);
+        if (null == gitRepoDirectory) {
+            return null;
+        }
+        final File toFile = FileUtil.toFile(gitRepoDirectory);
+        if (null == toFile) {
+            return null;
+        }
+        return GitRepository.getInstance(toFile);
+    }
+
     static FileObject getGitRepoDirectory(FileObject file) {
         FileObject currentFile = file;
         while (currentFile != null) {
@@ -67,5 +79,5 @@ public class GitUtils {
         }
         return null;
     }
-    
+
 }
