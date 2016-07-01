@@ -17,15 +17,10 @@ package de.markiewb.netbeans.plugin.git.showbranch;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.prefs.PreferenceChangeListener;
-import javax.swing.Action;
-import javax.swing.SwingWorker;
 import org.netbeans.libs.git.GitBranch;
 import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileUtil;
 import org.openide.modules.ModuleInstall;
 import org.openide.util.RequestProcessor;
-import org.openide.util.Utilities;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 

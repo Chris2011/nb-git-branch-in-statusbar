@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2014 markiewb.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +17,8 @@ package de.markiewb.netbeans.plugin.git.showbranch;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.netbeans.libs.git.GitBranch;
 import org.netbeans.libs.git.GitClient;
 import org.netbeans.libs.git.GitException;
@@ -24,13 +26,14 @@ import org.netbeans.libs.git.GitRepository;
 import org.netbeans.libs.git.progress.ProgressMonitor;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
-import org.openide.util.Exceptions;
 
 /**
  *
  * @author markiewb
  */
 public class GitUtils {
+
+    private static final Logger LOG = Logger.getLogger(GitUtils.class.getName());
 
     public static GitBranch getActiveBranch(final FileObject f) {
         final GitRepository repo = getGitRepo(f);
@@ -48,7 +51,7 @@ public class GitUtils {
                 }
             }
         } catch (GitException ex) {
-            Exceptions.printStackTrace(ex);
+            LOG.log(Level.WARNING, "Error while getting branch information", ex);
         } finally {
             if (null != client) {
                 client.release();
