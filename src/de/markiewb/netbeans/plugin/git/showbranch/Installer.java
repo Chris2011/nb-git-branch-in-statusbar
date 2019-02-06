@@ -31,13 +31,9 @@ public class Installer extends ModuleInstall implements PropertyChangeListener {
     @Override
     public void restored() {
         final PropertyChangeListener listenerA = this;
-        WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
-            @Override
-            public void run() {
-                // code to be invoked when system UI is ready
-                TopComponent.getRegistry().addPropertyChangeListener(listenerA);
-            }
-        });
+        WindowManager.getDefault().invokeWhenUIReady(() -> 
+            // code to be invoked when system UI is ready
+            TopComponent.getRegistry().addPropertyChangeListener(listenerA));
     }
 
     @Override
@@ -50,15 +46,12 @@ public class Installer extends ModuleInstall implements PropertyChangeListener {
         //run inside EDT, because we are using WindowManager inside
         final FileObject path = new PathUtils().getPath();
         //run the lenghty GIT processing outside EDT
-        requestProcessor.execute(new Runnable() {
-            @Override
-            public void run() {
-                final GitBranch activeBranch = GitUtils.getActiveBranch(path);
-                if (null != activeBranch) {
-                    BranchStatusLineElement.jLabel.setText(activeBranch.getName());
-                } else {
-                    BranchStatusLineElement.jLabel.setText("");
-                }
+        requestProcessor.execute(() -> {
+            final GitBranch activeBranch = GitUtils.getActiveBranch(path);
+            if (null != activeBranch) {
+                BranchStatusLineElement.jLabel.setText(activeBranch.getName() +" ");
+            } else {
+                BranchStatusLineElement.jLabel.setText("");
             }
         });
 
