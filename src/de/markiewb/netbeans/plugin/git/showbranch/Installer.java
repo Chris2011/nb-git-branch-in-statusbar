@@ -25,7 +25,6 @@ import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
 
 public class Installer extends ModuleInstall implements PropertyChangeListener {
-
     RequestProcessor requestProcessor = new RequestProcessor(Installer.class);
 
     @Override
