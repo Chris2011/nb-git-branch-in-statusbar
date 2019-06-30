@@ -7,7 +7,7 @@
 ## Updates in 1.0.4
 
 ### Features
-1 - Ready for Apache NetBeans 10. (PR [#7](https://github.com/Chris2011/nb-git-branch-in-statusbar/pull/7) by [ranSprd](https://github.com/ranSprd)  
+1 - Ready for Apache NetBeans 10. (PR [#7](https://github.com/Chris2011/nb-git-branch-in-statusbar/pull/7) by [ranSprd](https://github.com/ranSprd))  
 
 
 ## Updates in 1.0.3
